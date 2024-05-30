@@ -4,15 +4,15 @@ from flask import Flask, render_template, request, redirect, url_for, send_file
 from werkzeug.utils import secure_filename
 
 
-app = Flask(__name__)
+main = Flask(__name__)
 
 
-@app.route('/')
+@main.route('/')
 def upload_form():
     return render_template('upload.html')
 
 
-@app.route('/', methods=['POST'])
+@main.route('/', methods=['POST'])
 def upload_video():
     file = request.files['file']
     filename = secure_filename(file.filename)
