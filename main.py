@@ -33,17 +33,17 @@ def upload_video():
     	print('Completed reading all the Frames from the Video')
     return render_template('upload.html', filename=filename)
 
-@app.route('/download')
+@main.route('/download')
 def download_file():
 	converted_video_path = "static/blackandwhite.mp4"
 	return send_file(converted_video_path,as_attachment=True)
 
 
 
-@app.route('/display/<filename>')
+@main.route('/display/<filename>')
 def display_video(filename):
     return redirect(url_for('static', filename=filename))
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    main.run(debug=True)
